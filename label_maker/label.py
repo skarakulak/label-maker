@@ -151,12 +151,12 @@ def make_labels(dest_folder, zoom, country, classes, ml_type, bounding_box, spar
             makedirs(label_folder)
         for tile, label in tile_results.items():
             # if we have any class pixels
-            if np.sum(label):
-                label_file = '{}.png'.format(tile)
-                visible_label = np.array([class_color(l) for l in np.nditer(label)]).reshape(256, 256, 3)
-                img = Image.fromarray(visible_label.astype(np.uint8))
-                print('Writing {}'.format(label_file))
-                img.save(op.join(label_folder, label_file))
+            #if np.sum(label):
+            label_file = '{}.png'.format(tile)
+            visible_label = np.array([class_color(l) for l in np.nditer(label)]).reshape(256, 256, 3)
+            img = Image.fromarray(visible_label.astype(np.uint8))
+            print('Writing {}'.format(label_file))
+            img.save(op.join(label_folder, label_file))
 
 
 def _mapper(x, y, z, data, args):
