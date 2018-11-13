@@ -53,7 +53,8 @@ def download_images(dest_folder, classes, imagery, ml_type, background_ratio, im
         elif ml_type == 'classification':
             return value[0] == 0
         return None
-    class_tiles = [tile for tile in tiles.files if class_test(tiles[tile])]
+    # canceled the class test functionality
+    class_tiles = [tile for tile in tiles.files] #if class_test(tiles[tile])]
 
     # for classification problems with a single class, we also get background
     # tiles up to len(class_tiles) * config.get('background_ratio')
